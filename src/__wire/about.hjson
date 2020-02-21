@@ -1,0 +1,12 @@
+{
+    "Description": '''
+WIRE fosters a decentralized and worldwide network by utilizing masternode implementation. Token holders can earn network rewards (token minting)by using 35,000 WIRE tokens for collateral and creation of a masternode.
+The WIRE app allows you to easily implement the WIRE masternodes quickly and efficiently.
+'''
+    Links: [
+        { 
+            website: "https://airwire.io/",
+            explorer: "https://explorer.airwire.io/"
+        }
+    ]
+}
