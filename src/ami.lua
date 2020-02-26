@@ -15,7 +15,7 @@ return {
                     if not _ok then
                         ami_error(_ok, "Failed to get info of WIRE NODE - " .. _infoLua, EXIT_APP_INFO_ERROR)
                     end
-                    local _ok, _error = pcall(_infoLua, _options.json)
+                    local _ok, _error = pcall(_infoLua, OUTPUT_FORMAT == 'json')
                     ami_assert(_ok, "Failed to get info of WIRE NODE - " .. (_error or ""), EXIT_APP_INFO_ERROR)
                 end
             }
@@ -102,11 +102,6 @@ return {
         about = {
             description = "ami 'about' sub command",
             summary = "Prints information about application",
-            options = {
-                json = {
-                    description = "Prints app info as json"
-                }
-            },
             action = {
                 type = "code",
                 code = function(_options, command, args, cli)
@@ -121,7 +116,7 @@ return {
                     local _ok, _about = pcall(_hjson.parse, _aboutFile)
                     _about["App Type"] = type(APP.type) == 'table' and APP.type.id or APP.type
                     ami_assert(_ok, "Failed to parse about file!", EXIT_APP_ABOUT_ERROR)
-                    if _options.json then 
+                    if OUTPUT_FORMAT == 'json' then 
                         print(_hjson.stringify_to_json(_about, {indent = false, skipkeys = true}))
                     else 
                         print(_hjson.stringify(_about))
@@ -130,7 +125,7 @@ return {
             }
         },
         removedb = {
-            index = 5,
+            index = 6,
             description = "wired 'removedb' command",
             summary = "Removes wired database",
             options = {
@@ -150,7 +145,7 @@ return {
             }
         },
         remove = {
-            index = 6,
+            index = 7,
             action = {
                 type = "code",
                 code = function(_options, command, args, cli)
@@ -171,6 +166,6 @@ return {
                     return
                 end
             }
-        },
+        }
     }
 }

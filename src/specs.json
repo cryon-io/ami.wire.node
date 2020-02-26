@@ -1,5 +1,6 @@
 {
     "id": "wire.node" ,
+    "version" : "0.0.2",
     "dependencies": [
         { "id":"btc.base" },
         { "id": "wire.binaries"}
