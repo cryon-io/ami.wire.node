@@ -6,7 +6,7 @@ ami_assert(_ok, "Failed to load systemctl plugin", EXIT_APP_START_ERROR)
 
 local _info = {}
 local _ok, _status = _systemctl.safe_get_service_status(APP.id .. "-" .. APP.model.SERVICE_NAME)
-ami_assert(_ok, "Failed to start " .. APP.id .. "-geth.service " .. (_status or ""), EXIT_APP_START_ERROR)
+ami_assert(_ok, "Failed to start " .. APP.id .. "-" .. APP.model.SERVICE_NAME .. ".service " .. (_status or ""), EXIT_APP_START_ERROR)
 _info.wired = _status
 
 _info.level = "ok"

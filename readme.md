@@ -23,8 +23,6 @@ Airwire Masternode AMI app - runs system, master or gateway node.
     }
 }
 ```
-*Node types are: `masternode`, `servicenode` and `gatewaynode`.*
-
 4. Run `ami --path=<your app path> setup`
    * e.g. `ami --path=/mns/wire1`
 . Run `ami --path=<your app path> --help` to investigate available commands
