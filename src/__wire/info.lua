@@ -88,6 +88,9 @@ if not _info.synced and _info.level == 'ok' then
     _info.level = 'warn'
 end
 
+_info.version = get_app_version()
+_info.type = APP.type.id .. "-" .. (APP.model.NODE_TYPE or "unknown")
+
 if _json then
    print(_hjson.stringify_to_json(_info, { indent = false }))
 else
